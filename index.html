@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>فَاتور — Fatoor POS v3.1 StableLite</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="splash" class="splash">
+  <div class="splash-card">
+    <div class="logo-anim">
+      <svg width="200" height="104" viewBox="0 0 180  92" xmlns="http://www.w3.org/2000/svg">
+        <rect width="180" height="92" rx="14" fill="#0ea5a4"></rect>
+        <text x="90" y="60" font-size="38" font-family="Tahoma, Arial" font-weight="800" text-anchor="middle" fill="#ffffff">فَاتور</text>
+      </svg>
+    </div>
+    <div class="splash-welcome">مرحبًا بك — Fatoor POS</div>
+    <div class="splash-support">للدعم: 0506572881</div>
+    <div class="loader"><span></span><span></span><span></span></div>
+  </div>
+</div>
+
+<div id="app" style="display:none">
+  <header class="topbar">
+    <div class="brand"><div class="logo-small">فَاتور</div><div class="title">فَاتور — نظام إدارة المبيعات والفواتير</div></div>
+    <div class="actions"><span id="userBadge" class="muted"></span><button id="logoutBtn" class="btn ghost">تسجيل الخروج</button></div>
+  </header>
+
+  <main class="container">
+    <section id="page-login" class="card view">
+      <h2>تسجيل الدخول</h2>
+      <div class="role-row"><button class="btn" id="cashierEnter">دخول كاشير</button><button class="btn secondary" id="adminEnter">دخول مدير</button></div>
+      <div id="adminLogin" style="display:none;margin-top:12px">
+        <label>اسم المستخدم</label><input id="adminUser" type="text" placeholder="admin">
+        <label>كلمة المرور</label><input id="adminPass" type="password" placeholder="admin">
+        <div style="margin-top:10px"><button class="btn" id="adminLoginBtn">دخول المدير</button></div>
+      </div>
+    </section>
+
+    <section id="page-pos" class="card view" style="display:none">
+      <h2>الكاشير</h2>
+      <div class="pos-body">
+        <div class="left">
+          <div class="searchRow"><input id="searchProd" class="search" placeholder="بحث عن صنف..."><button class="btn ghost" id="refreshProd">⟳</button></div>
+          <div id="productsGrid" class="products-grid"></div>
+        </div>
+        <div class="right">
+          <div class="card mini">
+            <div class="current-info"><div><div id="currentStoreName" class="bold">اسم المحل</div></div><div class="inv-num"><div class="small muted">رقم الفاتورة</div><div id="currentInvoiceNumber" class="bold">1</div></div></div>
+            <div id="cartList" class="cart-list"></div>
+            <div id="totalsArea" class="totals">الإجمالي: 0 ر.س</div>
+            <div class="btnRow"><button class="btn" id="finishInvoiceBtn">إنهاء وطباعه</button><button class="btn ghost" id="clearCartBtn">مسح</button></div>
+          </div>
+          <div class="card keypad">
+            <h4>لوحة الأرقام</h4>
+            <div id="numDisplay" class="num-display">0</div>
+            <div class="keypad-grid">
+              <button class="kbtn" data-k="7">7</button><button class="kbtn" data-k="8">8</button><button class="kbtn" data-k="9">9</button><button class="kbtn op" data-op="-">-</button>
+              <button class="kbtn" data-k="4">4</button><button class="kbtn" data-k="5">5</button><button class="kbtn" data-k="6">6</button><button class="kbtn op" data-op="+">+</button>
+              <button class="kbtn" data-k="1">1</button><button class="kbtn" data-k="2">2</button><button class="kbtn" data-k="3">3</button><button class="kbtn equal" id="equalBtn">=</button>
+              <button class="kbtn zero" data-k="0">0</button><button class="kbtn" id="ceBtn">CE</button><button class="kbtn" id="applyBtn">تطبيق</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="page-admin" class="card view" style="display:none">
+      <h2>لوحة المدير</h2>
+      <div class="admin-grid">
+        <div class="card">
+          <h3>معلومات المحل</h3>
+          <label>اسم المحل</label><input id="storeName" type="text">
+          <label>الشعار</label><input id="logoInput" type="file" accept="image/*">
+          <div style="margin-top:8px"><button class="btn" id="saveSettingsBtn">حفظ</button></div>
+        </div>
+        <div class="card">
+          <h3>إدارة الأصناف</h3>
+          <label>اسم الصنف</label><input id="p_name" type="text">
+          <label>السعر (ريال)</label><input id="p_price" type="number" min="0" step="0.01">
+          <label>باركود (اختياري)</label><input id="p_barcode" type="text">
+          <label>صورة الصنف</label><input id="p_img" type="file" accept="image/*">
+          <div style="margin-top:8px"><button class="btn" id="addProductBtn">إضافة</button></div>
+          <div id="productsList" class="scroll"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer muted">© جميع الحقوق محفوظة — تطوير ياسر الايوب — الإصدار v3.1 StableLite</footer>
+</div>
+
+<audio id="startupSound" src="assets/startup_sound.wav" preload="auto"></audio>
+<script src="app.js"></script>
+</body>
+</html>
