@@ -1,1 +1,0 @@
-window.addEventListener('DOMContentLoaded',()=>{setTimeout(()=>{document.getElementById('splash').style.display='none';document.getElementById('app').style.display='block';}, 2200);});
