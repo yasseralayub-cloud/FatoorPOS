@@ -10,37 +10,42 @@
 <body>
 
 <!-- =========================
-       شاشة البداية
+       شاشة البداية (Splash)
 ========================= -->
 <div id="splash" class="splash">
   <div class="splash-card">
     <div class="logo-anim">
-      <svg width="200" height="104" viewBox="0 0 180  92" xmlns="http://www.w3.org/2000/svg">
+      <svg width="200" height="104" viewBox="0 0 180 92" xmlns="http://www.w3.org/2000/svg">
         <rect width="180" height="92" rx="14" fill="#0ea5a4"></rect>
-        <text x="90" y="60" font-size="38" font-family="Tahoma, Arial" font-weight="800" text-anchor="middle" fill="#ffffff">فَاتور</text>
+        <text x="90" y="60" font-size="38" font-family="Tahoma, Arial" font-weight="800"
+              text-anchor="middle" fill="#ffffff">فَاتور</text>
       </svg>
     </div>
+
     <div class="splash-welcome">مرحبًا بك — Fatoor POS</div>
     <div class="splash-support">للدعم: 0506572881</div>
-    <div class="loader"><span></span><span></span><span></span></div>
+
+    <div class="loader">
+      <span></span><span></span><span></span>
+    </div>
   </div>
 </div>
 
 <!-- =========================
-      التطبيق
+       محتوى التطبيق
 ========================= -->
 <div id="app" style="display:none">
 
-  <!-- اللوجو الجديد -->
+  <!-- اللوجو العلوي -->
   <div id="fatoorLogo">Fatoor POS</div>
 
   <main class="container">
 
     <!-- =========================
-         صفحة تسجيل الدخول
+         تسجيل الدخول
     ========================== -->
     <section id="page-login" class="card view">
-      
+
       <div class="role-row">
         <button class="btn" id="cashierEnter">دخول كاشير</button>
         <button class="btn secondary" id="adminEnter">دخول مدير</button>
@@ -49,8 +54,10 @@
       <div id="adminLogin" style="display:none;margin-top:12px">
         <label>اسم المستخدم</label>
         <input id="adminUser" type="text" placeholder="admin">
+
         <label>كلمة المرور</label>
         <input id="adminPass" type="password" placeholder="admin">
+
         <div style="margin-top:10px">
           <button class="btn" id="adminLoginBtn">دخول المدير</button>
         </div>
@@ -101,9 +108,10 @@
             </div>
           </div>
 
-          <!-- لوحة الأرقام العائمة -->
+          <!-- لوحة الأرقام (عائمة) -->
           <div class="card keypad">
             <h4>لوحة الأرقام</h4>
+
             <div id="numDisplay" class="num-display">0</div>
 
             <div class="keypad-grid">
@@ -122,7 +130,7 @@
               <button class="kbtn" data-k="3">3</button>
               <button class="kbtn equal" id="equalBtn">=</button>
 
-              <button class="kbtn zero" data-k="0">0</button>
+              <button class="kbtn" data-k="0">0</button>
               <button class="kbtn" id="ceBtn">CE</button>
               <button class="kbtn" id="applyBtn">تطبيق</button>
             </div>
@@ -134,13 +142,15 @@
     </section>
 
     <!-- =========================
-         صفحة المدير
+         لوحة المدير
     ========================== -->
     <section id="page-admin" class="card view" style="display:none">
+
       <div class="admin-grid">
 
         <div class="card">
           <h3>معلومات المحل</h3>
+
           <label>اسم المحل</label>
           <input id="storeName" type="text">
 
@@ -174,6 +184,7 @@
           <div id="productsList" class="scroll"></div>
 
         </div>
+
       </div>
     </section>
 
@@ -186,6 +197,7 @@
 </div>
 
 <audio id="startupSound" src="assets/startup_sound.wav" preload="auto"></audio>
+
 <script src="app.js"></script>
 
 </body>
