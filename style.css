@@ -176,3 +176,107 @@ input {
     font-size: 26px;
   }
 }
+/* ============================
+   تصحيح ترتيب واجهة الكاشير
+   ============================ */
+
+/* الوعاء الأساسي */
+#page-pos .pos-body {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* -------------------------
+   قسم اليسار (البحث + المنتجات)
+   ------------------------- */
+#page-pos .left {
+  order: 1;
+  width: 100%;
+}
+
+/* البحث */
+#page-pos .searchRow {
+  display: flex;
+  gap: 8px;
+}
+
+/* شبكة المنتجات */
+#page-pos #productsGrid {
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(115px, 1fr));
+  gap: 10px;
+}
+
+/* -------------------------
+   قسم اليمين (السلة والإجمالي)
+   ------------------------- */
+#page-pos .right {
+  order: 2;
+  width: 100%;
+}
+
+/* الكرت الخاص بالسلة */
+#page-pos .right .card.mini {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+/* السلة */
+#cartList {
+  max-height: 240px;
+  overflow-y: auto;
+}
+
+/* الإجمالي */
+#totalsArea {
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+/* -------------------------
+   لوحة الأرقام — تأتي آخر شيء
+   ------------------------- */
+.keypad {
+  order: 3;
+  width: 100%;
+}
+
+.keypad h4 {
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.keypad-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+.kbtn {
+  background: #ececec;
+  padding: 18px 0;
+  border-radius: 10px;
+  border: none;
+  font-size: 22px;
+}
+
+/* -------------------------
+   ضبط إضافي للشاشات الصغيرة
+   ------------------------- */
+@media (max-width: 480px) {
+  #productsGrid {
+    grid-template-columns: repeat(auto-fill, minmax(95px, 1fr));
+  }
+
+  #cartList {
+    max-height: 200px;
+  }
+
+  .kbtn {
+    padding: 16px 0;
+    font-size: 20px;
+  }
+}
+
