@@ -1,282 +1,155 @@
-/* ============= Reset ============= */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/* =========================
+   Fatoor POS – واجهة كاشير حديثة
+   ========================= */
+
+/* إخفاء الكلام فوق */
+.topbar,
+#page-login h2,
+#page-pos h2 {
+    display: none;
 }
 
-html, body {
-  width: 100%;
-  max-width: 100%;
-  overflow-x: hidden;
-  font-family: Tahoma, Arial;
-  background: #f5f5f5;
-}
-
-/* ============= عناصر عامة ============= */
-.card {
-  background: #fff;
-  padding: 14px;
-  border-radius: 12px;
-  width: 100%;
-  margin-bottom: 12px;
-}
-
-.btn {
-  padding: 10px 16px;
-  background: #0ea5a4;
-  border: none;
-  border-radius: 8px;
-  color: #fff;
-  font-size: 15px;
-  width: 100%;
-}
-
-.btn.secondary {
-  background: #555;
-}
-
-.btn.ghost {
-  background: transparent;
-  color: #0ea5a4;
-  border: 2px solid #0ea5a4;
-}
-
-input {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  margin-bottom: 10px;
-}
-
-/* ============= Splash ============= */
-.splash {
-  width: 100%;
-  height: 100vh;
-  background: #f0fcfc;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.splash-card {
-  text-align: center;
-}
-
-/* ============= هيدر ============= */
-.topbar {
-  width: 100%;
-  background: #ffffff;
-  padding: 12px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  border-bottom: 1px solid #ddd;
-}
-.topbar .brand {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  width: 100%;
-}
-.topbar .actions {
-  width: 100%;
-  margin-top: 8px;
-  text-align: center;
-}
-
-/* ============= صفحات ============= */
-.view {
-  margin-top: 12px;
-}
-
-/* ============= شاشة تسجيل الدخول ============= */
-.role-row {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-/* ============= صفحة الكاشير ============= */
-.pos-body {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.left, .right {
-  width: 100%;
-}
-
-/* البحث */
-.searchRow {
-  display: flex;
-  gap: 10px;
-}
-
-/* شبكة المنتجات */
-.products-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
-  gap: 10px;
-}
-
-/* سلة المشتريات */
-.cart-list {
-  max-height: 250px;
-  overflow-y: auto;
-}
-
-/* الإجمالي */
-.totals {
-  font-size: 18px;
-  margin: 10px 0;
-}
-
-/* لوحة الأرقام */
-.keypad {
-  width: 100%;
-}
-.keypad-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 6px;
-}
-.kbtn {
-  padding: 18px 0;
-  border-radius: 8px;
-  background: #eee;
-  font-size: 20px;
-  border: none;
-}
-
-/* ============= صفحة المدير ============= */
-.admin-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-/* ============= الفوتر ============= */
-.footer {
-  text-align: center;
-  padding: 12px;
-  font-size: 12px;
-  color: #555;
-}
-
-/* ============= تحسين إضافي لشاشات أصغر من 480px ============= */
-@media (max-width: 480px) {
-  h2 { font-size: 20px; }
-  h3 { font-size: 17px; }
-  .products-grid {
-    grid-template-columns: repeat(auto-fill, minmax(95px, 1fr));
-  }
-  .num-display {
+/* عرض اللوجو فقط */
+.logo-small, .title {
+    text-align: center;
     font-size: 26px;
-  }
-}
-/* ============================
-   تصحيح ترتيب واجهة الكاشير
-   ============================ */
-
-/* الوعاء الأساسي */
-#page-pos .pos-body {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
+    font-weight: bold;
+    margin-top: 10px;
 }
 
-/* -------------------------
-   قسم اليسار (البحث + المنتجات)
-   ------------------------- */
-#page-pos .left {
-  order: 1;
-  width: 100%;
-}
+/* -----------------------
+     لوحة الأرقام — عائمة
+   ----------------------- */
 
-/* البحث */
-#page-pos .searchRow {
-  display: flex;
-  gap: 8px;
-}
-
-/* شبكة المنتجات */
-#page-pos #productsGrid {
-  margin-top: 10px;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(115px, 1fr));
-  gap: 10px;
-}
-
-/* -------------------------
-   قسم اليمين (السلة والإجمالي)
-   ------------------------- */
-#page-pos .right {
-  order: 2;
-  width: 100%;
-}
-
-/* الكرت الخاص بالسلة */
-#page-pos .right .card.mini {
-  width: 100%;
-  margin-bottom: 10px;
-}
-
-/* السلة */
-#cartList {
-  max-height: 240px;
-  overflow-y: auto;
-}
-
-/* الإجمالي */
-#totalsArea {
-  font-size: 18px;
-  margin: 10px 0;
-}
-
-/* -------------------------
-   لوحة الأرقام — تأتي آخر شيء
-   ------------------------- */
 .keypad {
-  order: 3;
-  width: 100%;
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    width: 120px;
+    background: #fff;
+    padding: 8px;
+    border-radius: 12px;
+    box-shadow: 0px 0px 12px rgba(0,0,0,0.15);
+    z-index: 9999;
 }
 
 .keypad h4 {
-  margin-bottom: 10px;
-  text-align: center;
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: 4px;
+}
+
+.num-display {
+    font-size: 18px;
+    width: 100%;
+    padding: 4px 0;
+    text-align: center;
+    border-radius: 6px;
+    background: #f4f4f4;
+    margin-bottom: 8px;
 }
 
 .keypad-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 8px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4px;
 }
 
 .kbtn {
-  background: #ececec;
-  padding: 18px 0;
-  border-radius: 10px;
-  border: none;
-  font-size: 22px;
+    padding: 10px 0;
+    background: #e9e9e9;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
 }
 
-/* -------------------------
-   ضبط إضافي للشاشات الصغيرة
-   ------------------------- */
-@media (max-width: 480px) {
-  #productsGrid {
-    grid-template-columns: repeat(auto-fill, minmax(95px, 1fr));
-  }
+.kbtn.equal {
+    grid-column: span 3;
+    background: #0ea5a4;
+    color: #fff;
+}
 
-  #cartList {
-    max-height: 200px;
-  }
+/* -----------------------
+   المنتجات — مربعات صغيرة
+   ----------------------- */
 
-  .kbtn {
-    padding: 16px 0;
-    font-size: 20px;
-  }
+.products-grid {
+    margin-top: 150px; /* لأن لوحة الأرقام تطفو فوق */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+.product-card {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 8px;
+    text-align: center;
+    box-shadow: 0px 0px 4px rgba(0,0,0,0.08);
+}
+
+.product-card img {
+    width: 100%;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 6px;
+}
+
+/* لو ما فيه صورة */
+.product-card .noimg {
+    width: 100%;
+    height: 80px;
+    background: linear-gradient(145deg, #d9d9d9, #ffffff);
+    border-radius: 10px;
+    margin-bottom: 6px;
+}
+
+/* -----------------------
+        السـلــة
+   ----------------------- */
+
+.card.mini {
+    margin-top: 18px;
+    width: 100%;
+    border-radius: 12px;
+    padding: 12px;
+}
+
+#cartList {
+    max-height: 160px;
+    overflow-y: auto;
+    padding: 6px;
+}
+
+#totalsArea {
+    font-size: 22px;
+    font-weight: bold;
+    margin: 12px 0;
+}
+
+/* زر إنهاء الفاتورة */
+#finishInvoiceBtn {
+    background: #0ea5a4;
+    color: #fff;
+    padding: 12px;
+    font-size: 18px;
+    width: 100%;
+    border-radius: 10px;
+}
+
+#clearCartBtn {
+    background: #fff;
+    border: 2px solid #0ea5a4;
+    color: #0ea5a4;
+    padding: 10px;
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* ضبط الصفحة بالكامل */
+.container {
+    padding: 10px;
 }
 
